@@ -18,7 +18,7 @@ jobs:
       - name: Show the runner OS
         run: echo "Running on ${{ runner.os }}"
 
-      - name: Use a secret
-        run: echo "The secret starts with ${{ secrets.MY_SECRET }}"
+      - name: Use a secret (safe peek)
+        run: echo "First char: ${MY_SECRET:0:1}"
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
