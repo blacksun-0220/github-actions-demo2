@@ -1,0 +1,24 @@
+name: My Second Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Print a greeting
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show the runner OS
+        run: echo "Running on ${{ runner.os }}"
+
+      - name: Use a secret
+        run: echo "The secret starts with ${{ secrets.MY_SECRET }}"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
